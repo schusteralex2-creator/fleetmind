@@ -1,0 +1,30 @@
+# wrangler.toml — Cloudflare Worker configuration for FleetMind proxy
+#
+# Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "fleetmind-proxy"
+main = "proxy-worker.js"
+compatibility_date = "2024-01-01"
+
+# Worker runs on the Cloudflare global edge network (free plan)
+# Remove this section if you upgrade to Workers Paid for higher limits
+
+
+# ─── Routes ──────────────────────────────────────────────────────────────────
+# Replace "fleetmind.yourcompany.com" with your actual Pages domain.
+# This tells Cloudflare to route /proxy requests to the Worker,
+# and everything else to your Pages app.
+#
+# Uncomment and fill in once your Pages domain is set up:
+#
+# [[routes]]
+# pattern = "fleetmind.yourcompany.com/proxy"
+# zone_name = "yourcompany.com"
+
+# ─── Environment Variables ───────────────────────────────────────────────────
+# No secrets needed — the Worker is stateless.
+# If you want to lock down the CORS origin to your exact Pages URL,
+# set it here instead of hardcoding "*" in the worker script:
+#
+# [vars]
+# CORS_ORIGIN = "https://fleetmind.yourcompany.com"
